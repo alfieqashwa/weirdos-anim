@@ -26,6 +26,9 @@ dependencies:
   gsap:
     specifier: ^3.12.2
     version: 3.12.2
+  lucide:
+    specifier: ^0.265.0
+    version: 0.265.0
   next:
     specifier: 13.4.13
     version: 13.4.13(react-dom@18.2.0)(react@18.2.0)
@@ -1628,6 +1631,10 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       yallist: 4.0.0
+    dev: false
+
+  /lucide@0.265.0:
+    resolution: {integrity: sha512-UftGwLDfBwI4lKz2XjcyGQZrDObx3GNlqLO9s22T8+MhdvJEqJnNRErpOdL/6K6Z1i/iO1PeD4q4kqDXVhL5jw==}
     dev: false
 
   /merge2@1.4.1:
