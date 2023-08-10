@@ -25,3 +25,12 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+@layer components {
+  .thom {
+    @apply z-50 outline outline-rose-200;
+  }
+  .kurt {
+    @apply z-50 outline outline-sky-200;
+  }
+}
