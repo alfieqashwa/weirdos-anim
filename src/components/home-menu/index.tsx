@@ -1,10 +1,10 @@
 const MENULIST = [
-  { title: 'home' },
-  { title: 'about' },
-  { title: 'roadmap' },
-  { title: 'showcase' },
-  { title: 'team' },
-  { title: 'faq' },
+  { title: 'home', link: '#__home' },
+  { title: 'about', link: '#__about' },
+  { title: 'roadmap', link: '#__roadmap' },
+  { title: 'showcase', link: '#__showcase' },
+  { title: 'team', link: '#__team' },
+  { title: 'faq', link: '#__faq' },
 ] as const;
 
 export const HomeMenu = () => {
@@ -16,9 +16,9 @@ export const HomeMenu = () => {
         {/* Menu */}
         <nav className='flex space-x-8'>
           {MENULIST.map((m, i) => (
-            <p className='capitalize tracking-wide' key={i}>
+            <a href={m.link} className='capitalize tracking-wide' key={i}>
               {m.title}
-            </p>
+            </a>
           ))}
         </nav>
         <button className='capitalize bg-[#202020] text-sm font-medium tracking-wide text-white rounded-full px-10 py-3'>
@@ -34,17 +34,25 @@ export const HomeMenu = () => {
 };
 
 const Tagline = () => (
-  <div className='kurt'>
-    <h1>Discover A New Era Of Cool</h1>
-    <h1>Collectible Items.</h1>
-    <p>Bored Of Apes? Try Something New.</p>
+  <div className='kurt w-1/3'>
+    <h1 className='font-semibold text-5xl'>Discover A New Era Of Cool</h1>
+    <h1 className='mt-1.5 text-4xl uppercase font-bold text-[#FFA500]'>
+      Collectible Items.
+    </h1>
+    <p className='mt-.5 font-semibold text-xl text-[#797979]'>
+      Bored Of Apes? Try Something New.
+    </p>
+
+    <button className='mt-3 bg-[#202020] text-slate-50 text-sm font-medium px-8 py-3 rounded-full'>
+      Explore
+    </button>
   </div>
 );
 const TheWeirdos = () => (
-  <div>
+  <div className='thom'>
     <video
       width='640'
-      height='480'
+      height='240'
       src='/vid-cartoons.mp4'
       autoPlay
       loop
