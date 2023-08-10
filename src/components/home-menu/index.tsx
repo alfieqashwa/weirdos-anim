@@ -67,7 +67,7 @@ const TheWeirdos = () => (
 );
 
 const RoundedTagline = () => {
-  const taglineRef = useRef<HTMLDivElement>(null);
+  const taglineRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     if (taglineRef.current) {
@@ -86,10 +86,7 @@ const RoundedTagline = () => {
   }, []);
 
   return (
-    <div
-      ref={taglineRef}
-      className='absolute w-24 h-24 bottom-10 -left-4 outline outline-1 outline-black rounded-full flex justify-center items-center'
-    >
+    <div className='absolute w-24 h-24 bottom-10 -left-4 outline outline-1 outline-black rounded-full flex justify-center items-center'>
       <div className='bg-black w-12 h-12 rounded-full relative text-white'>
         <svg
           xmlns='http://www.w3.org/2000/svg'
@@ -107,7 +104,12 @@ const RoundedTagline = () => {
           <path d='M12 2V22' />
         </svg>
       </div>
-      <Image src='/img/rounded-tagline.png' alt='Tagline' fill />
+      <Image
+        ref={taglineRef}
+        src='/img/rounded-tagline.png'
+        alt='Tagline'
+        fill
+      />
     </div>
   );
 };
