@@ -1,7 +1,7 @@
-import { Inter } from 'next/font/google';
+import { Sora } from 'next/font/google';
 import { HomeMenu } from '~/components/home-menu';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Sora({ subsets: ['latin-ext'] });
 
 export default function Home() {
   return (
