@@ -19,7 +19,7 @@ export const NavigationSection = () => {
           &nbsp;
         </span>
         <MenuList />
-        <div className='hidden lg:inline-block'>
+        <div className='invisible lg:visible'>
           <button className='bg-[#202020] rounded-[50px] relative text-white outline-none border-none text-sm py-[0.9rem] px-[2.3rem] cursor-pointer transition-all duration-200 ease-in-out'>
             <a
               href='https://google.com'
