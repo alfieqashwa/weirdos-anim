@@ -1,25 +1,33 @@
-import { Menu } from 'lucide-react';
+import { Menu } from "lucide-react"
+import { MENULIST } from "~/constant/menu-list-data"
 
-const MENULIST = [
-  { title: 'Home', link: '#home' },
-  { title: 'About', link: '#about' },
-  { title: 'Roadmap', link: '#roadmap' },
-  { title: 'Showcase', link: '#showcase' },
-  { title: 'Team', link: '#team' },
-  { title: 'Faq', link: '#faq' },
-] as const;
-
-export const MenuList = (): JSX.Element => (
+export const MenuListDesktopView = (): JSX.Element => (
   <>
-    <ul className='lg:flex justify-center items-center list-none hidden'>
+    <ul className="hidden list-none items-center justify-center lg:flex">
       {MENULIST.map((m, i) => (
         <li key={i}>
-          <a href={m.link} className='mx-4 cursor-pointer text-[#202020]'>
+          <a href={m.link} className="mx-4 cursor-pointer text-[#202020]">
             {m.title}
           </a>
         </li>
       ))}
     </ul>
-    <Menu className='block lg:hidden' size={28} />
+    <button className="inline-block lg:hidden">
+      <Menu size={28} />
+    </button>
   </>
-);
+)
+
+export const MenuListMobileView = () => {
+  return (
+    <ul className="fixed inset-y-20 z-50 flex min-h-[calc(100vh_+_5rem)] w-full touch-none flex-col justify-center bg-white opacity-80 backdrop-blur-sm transition-all duration-300 ease-in-out lg:hidden">
+      {MENULIST.map((m, i) => (
+        <li key={i}>
+          <a href={m.link} className="my-4 cursor-pointer text-[#202020]">
+            {m.title}
+          </a>
+        </li>
+      ))}
+    </ul>
+  )
+}

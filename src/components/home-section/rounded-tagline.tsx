@@ -1,10 +1,10 @@
-import { gsap } from 'gsap';
-import { ArrowDown, MoveDown } from 'lucide-react';
-import Image from 'next/image';
-import { useEffect, useRef } from 'react';
+import { gsap } from "gsap"
+import { ArrowDown, MoveDown } from "lucide-react"
+import Image from "next/image"
+import { useEffect, useRef } from "react"
 
 export const RoundedTagline = (): JSX.Element => {
-  const taglineRef = useRef<HTMLImageElement | null>(null);
+  const taglineRef = useRef<HTMLImageElement | null>(null)
 
   useEffect(() => {
     if (taglineRef.current) {
@@ -13,27 +13,27 @@ export const RoundedTagline = (): JSX.Element => {
           rotation: -360,
           duration: 6,
           repeat: -1,
-          ease: 'linear',
-        });
-      });
+          ease: "linear",
+        })
+      })
 
       //unmount
-      return () => ctx.revert();
+      return () => ctx.revert()
     }
-  }, []);
+  }, [])
 
   return (
-    <div className='absolute lg:w-24 lg:h-24 w-16 h-16 lg:bottom-8 bottom-full right-8 lg:right-[90%] outline outline-1 outline-black rounded-full flex justify-center items-center'>
-      <span className='bg-black lg:w-12 lg:h-12 w-8 h-8 rounded-full relative text-white'>
-        <MoveDown className='w-3 lg:w-5 text-white top-1/2 absolute -translate-y-1/2 left-1/2 -translate-x-1/2' />
+    <div className="absolute bottom-full right-8 flex h-16 w-16 items-center justify-center rounded-full outline outline-1 outline-black lg:bottom-8 lg:right-[90%] lg:h-24 lg:w-24">
+      <span className="relative h-8 w-8 rounded-full bg-black text-white lg:h-12 lg:w-12">
+        <MoveDown className="absolute left-1/2 top-1/2 w-3 -translate-x-1/2 -translate-y-1/2 text-white lg:w-5" />
       </span>
 
       <Image
         ref={taglineRef}
-        src='/img/rounded-tagline.png'
-        alt='Tagline'
+        src="/img/rounded-tagline.png"
+        alt="Tagline"
         fill
       />
     </div>
-  );
-};
+  )
+}
