@@ -7,9 +7,10 @@ export const HomeSection = (): JSX.Element => {
   return (
     <section
       id='#home'
-      className='relative w-full bg-white min-h-[(100%-5rem)]'
+      // className='w-full relative bg-white min-h-[(calc(100%_-_5rem))]'
+      className='w-full relative bg-white min-h-[calc(100vh_-_5rem)]'
     >
-      <div className='m-auto flex justify-center items-center w-3/4 min-h-[80vh] '>
+      <div className='bottom-8 m-auto flex justify-center items-center w-3/4 min-h-[80vh] '>
         <Tagline />
         <WeirdosVideo />
         <RoundedTagline />

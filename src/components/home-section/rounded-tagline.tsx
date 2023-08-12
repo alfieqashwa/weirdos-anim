@@ -1,4 +1,5 @@
 import { gsap } from 'gsap';
+import { ArrowDown, MoveDown } from 'lucide-react';
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 
@@ -22,24 +23,11 @@ export const RoundedTagline = (): JSX.Element => {
   }, []);
 
   return (
-    <div className='absolute w-24 h-24 bottom-10 -left-4 outline outline-1 outline-black rounded-full flex justify-center items-center'>
-      <div className='bg-black w-12 h-12 rounded-full relative text-white'>
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          width='20'
-          height='20'
-          viewBox='0 0 24 24'
-          fill='none'
-          stroke='currentColor'
-          strokeWidth='2'
-          strokeLinecap='round'
-          strokeLinejoin='round'
-          className='lucide lucide-move-down absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2'
-        >
-          <path d='M8 18L12 22L16 18' />
-          <path d='M12 2V22' />
-        </svg>
-      </div>
+    <div className='absolute lg:w-24 lg:h-24 w-16 h-16 lg:bottom-8 bottom-full right-8 lg:right-[90%] outline outline-1 outline-black rounded-full flex justify-center items-center'>
+      <span className='bg-black lg:w-12 lg:h-12 w-8 h-8 rounded-full relative text-white'>
+        <MoveDown className='w-3 lg:w-5 text-white top-1/2 absolute -translate-y-1/2 left-1/2 -translate-x-1/2' />
+      </span>
+
       <Image
         ref={taglineRef}
         src='/img/rounded-tagline.png'
