@@ -1,13 +1,13 @@
 import { Sora } from 'next/font/google';
-import { HomeMenu } from '~/components/home-menu';
+import { HomeSection } from '~/components/home-section';
 import { NavigationSection } from '~/components/navigation-section';
 
-const inter = Sora({ subsets: ['latin-ext'] });
+const sora = Sora({ subsets: ['latin'] });
 export default function Home() {
   return (
-    <main className={`${inter.className}`}>
+    <main className={`${sora.className}`}>
       <NavigationSection />
-      <HomeMenu />
+      <HomeSection />
     </main>
   );
 }

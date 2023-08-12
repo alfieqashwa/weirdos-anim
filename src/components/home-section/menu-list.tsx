@@ -11,7 +11,7 @@ const MENULIST = [
 
 export const MenuList = (): JSX.Element => (
   <>
-    <ul className='flex justify-center items-center list-none'>
+    <ul className='lg:flex justify-center items-center list-none hidden'>
       {MENULIST.map((m, i) => (
         <li key={i}>
           <a href={m.link} className='mx-4 cursor-pointer text-[#202020]'>
