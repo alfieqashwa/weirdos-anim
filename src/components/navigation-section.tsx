@@ -1,9 +1,8 @@
 import { Akaya_Telivigala } from "next/font/google"
 import Link from "next/link"
-import React from "react"
 import {
+  CollectWalletButton,
   MenuListDesktopView,
-  MenuListMobileView,
 } from "./home-section/menu-list"
 
 const akaya = Akaya_Telivigala({
@@ -22,20 +21,9 @@ export const NavigationSection = () => {
           &nbsp;
         </span>
         <MenuListDesktopView />
-        <div className="invisible lg:visible">
-          <button className="relative cursor-pointer rounded-[50px] border-none bg-[#202020] px-[2.3rem] py-[0.9rem] text-sm text-white outline-none transition-all duration-200 ease-in-out">
-            <a
-              href="https://google.com"
-              aria-label="Connect Wallet"
-              target="_blank"
-              rel="noreferrer"
-              className="whitespace-nowrap"
-            >
-              Connect Wallet
-            </a>
-          </button>
+        <div className="hidden lg:block">
+          <CollectWalletButton />
         </div>
-        <MenuListMobileView />
       </nav>
     </section>
   )
