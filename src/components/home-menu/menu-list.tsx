@@ -1,18 +1,25 @@
+import { Menu } from 'lucide-react';
+
 const MENULIST = [
-  { title: "home", link: "#__home" },
-  { title: "about", link: "#__about" },
-  { title: "roadmap", link: "#__roadmap" },
-  { title: "showcase", link: "#__showcase" },
-  { title: "team", link: "#__team" },
-  { title: "faq", link: "#__faq" },
+  { title: 'Home', link: '#home' },
+  { title: 'About', link: '#about' },
+  { title: 'Roadmap', link: '#roadmap' },
+  { title: 'Showcase', link: '#showcase' },
+  { title: 'Team', link: '#team' },
+  { title: 'Faq', link: '#faq' },
 ] as const;
 
 export const MenuList = (): JSX.Element => (
-  <nav className="flex space-x-8">
-    {MENULIST.map((m, i) => (
-      <a href={m.link} className="capitalize tracking-wide" key={i}>
-        {m.title}
-      </a>
-    ))}
-  </nav>
+  <>
+    <ul className='flex justify-center items-center list-none'>
+      {MENULIST.map((m, i) => (
+        <li key={i}>
+          <a href={m.link} className='mx-4 cursor-pointer text-[#202020]'>
+            {m.title}
+          </a>
+        </li>
+      ))}
+    </ul>
+    <Menu className='block lg:hidden' size={28} />
+  </>
 );
