@@ -1,6 +1,6 @@
 export const WeirdosVideo = (): JSX.Element => (
   <div className="flex h-full w-1/2 flex-col items-center justify-center">
-    <div className="w-100">
+    <div className="w-full min-w-[40vh]">
       <video
         width="640"
         height="240"

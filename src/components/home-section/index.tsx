@@ -9,7 +9,7 @@ export const HomeSection = (): JSX.Element => {
       id="#home"
       className="relative min-h-[calc(100vh_-_5rem)] w-full bg-white"
     >
-      <div className="bottom-8 m-auto flex min-h-[80vh] w-3/4 items-center justify-center ">
+      <div className="bottom-8 m-auto flex min-h-[80vh] w-3/4 flex-col-reverse items-center justify-center md:flex-row">
         <Tagline />
         <WeirdosVideo />
         <RoundedTagline />
