@@ -1,27 +1,16 @@
-import { Menu } from "lucide-react"
 import { MENULIST } from "~/constant/menu-list-data"
-import { useToggleContext } from "~/hooks/context"
 
 export const MenuListDesktopView = (): JSX.Element => {
-  const { toggle, setToggle } = useToggleContext()
   return (
-    <>
-      <ul className="hidden items-center justify-center lg:flex">
-        {MENULIST.map((m, i) => (
-          <li key={i}>
-            <a href={m.link} className="mx-4 cursor-pointer text-[#202020]">
-              {m.title}
-            </a>
-          </li>
-        ))}
-      </ul>
-      <button
-        onClick={() => setToggle(!toggle)}
-        className="mb-4 mr-14 flex w-full justify-center lg:hidden"
-      >
-        <Menu size={30} />
-      </button>
-    </>
+    <ul className="hidden items-center justify-center lg:flex">
+      {MENULIST.map((m, i) => (
+        <li key={i}>
+          <a href={m.link} className="mx-4 cursor-pointer text-[#202020]">
+            {m.title}
+          </a>
+        </li>
+      ))}
+    </ul>
   )
 }
 
