@@ -4,7 +4,7 @@ import {
   CollectWalletButton,
   MenuListDesktopView,
 } from "./home-section/menu-list"
-import { Menu } from "lucide-react"
+import { Menu, MoveDown } from "lucide-react"
 
 const akaya = Akaya_Telivigala({
   weight: "400",
@@ -31,7 +31,7 @@ export const NavigationSection = ({ toggle, setToggle }: NavigationProps) => {
           onClick={() => setToggle(!toggle)}
           className="mb-4 mr-14 flex w-full justify-center lg:hidden"
         >
-          <Menu size={30} />
+          {toggle ? <MoveDown size={30} /> : <Menu size={30} />}
         </button>
         <div className="hidden lg:block">
           <CollectWalletButton />
