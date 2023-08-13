@@ -10,7 +10,7 @@ export const Tagline = (): JSX.Element => (
       {/* // TODOS: Animate Dynamic text */}
       <TypingAnimation />
     </h2>
-    <h3 className="mb-4 items-start text-center text-[1.25em] capitalize text-[#797979] md:text-left">
+    <h3 className="mb-4 w-full text-center text-[1.25em] capitalize text-[#797979] md:text-left">
       Bored Of Apes? Try Something New.
     </h3>
     <div className="w-full text-center md:w-4/5 md:text-left">
