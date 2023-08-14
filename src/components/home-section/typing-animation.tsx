@@ -8,7 +8,6 @@ const akaya = Akaya_Telivigala({
 })
 
 export const TypingAnimation = (): JSX.Element => {
-  //! Hook.eslintreact-hooks/exhaustive-deps
   const strings = useMemo(
     () => [
       { text: "collectible items.", color: "#FFA500" },
@@ -33,24 +32,38 @@ export const TypingAnimation = (): JSX.Element => {
           if (currentIndex < textToType.length) {
             setTypedText(textToType.slice(0, currentIndex + 1))
           } else {
-            setIsReversed(true)
-            clearInterval(interval)
+            setIsCursorVisible(true) // Ensure cursor is visible before reversing
+            setTimeout(() => {
+              setIsReversed(true)
+              setIsCursorVisible(false) // Hide cursor during delay before reversing
+            }, 2000) // Delay 2 seconds before reversing the text
           }
         } else {
           if (currentIndex > 0) {
             setTypedText(textToType.slice(0, currentIndex - 1))
           } else {
             setIsReversed(false)
+            setIsCursorVisible(true) // Show cursor before starting the next iteration
             setStringIndex((prevIndex) => (prevIndex + 1) % strings.length)
             setTypedText("")
           }
         }
       },
       isReversed ? 100 : 200,
-    ) // Adjust typing speed as needed
+    )
 
     return () => clearInterval(interval)
-  }, [isReversed, stringIndex, strings, typedText.length])
+  }, [isReversed, stringIndex, strings, typedText])
+
+  const [isCursorVisible, setIsCursorVisible] = useState(true)
+
+  useEffect(() => {
+    const cursorBlinkInterval = setInterval(() => {
+      setIsCursorVisible((prevIsCursorVisible) => !prevIsCursorVisible)
+    }, 500)
+
+    return () => clearInterval(cursorBlinkInterval)
+  }, [])
 
   return (
     <div className={`${akaya.className}`}>
@@ -64,13 +77,12 @@ export const TypingAnimation = (): JSX.Element => {
         >
           {typedText}
         </motion.span>
-        {(typedText.length < strings[stringIndex].text.length ||
-          isReversed) && (
+        {(isCursorVisible || isReversed) && (
           <motion.span
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{
-              duration: 0.2,
+              duration: 0.5,
               repeat: Infinity,
               repeatType: "reverse",
             }}
