@@ -12,7 +12,7 @@ export default function Home() {
     <main className={`${sora.className}`}>
       <NavigationSection toggle={toggle} setToggle={setToggle} />
       <HomeSection />
-      {toggle && <MenuListMobileView />}
+      {toggle && <MenuListMobileView toggle={toggle} />}
     </main>
   )
 }
