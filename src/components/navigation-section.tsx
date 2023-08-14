@@ -1,10 +1,11 @@
 import { Akaya_Telivigala } from "next/font/google"
 import Link from "next/link"
-import { motion } from "framer-motion"
+import { motion, type Variants } from "framer-motion"
 import {
   CollectWalletButton,
   MenuListDesktopView,
 } from "./home-section/menu-list"
+import { Menu, MoveRight } from "lucide-react"
 
 const akaya = Akaya_Telivigala({
   weight: "400",
@@ -16,18 +17,26 @@ type NavigationProps = {
   setToggle: React.Dispatch<React.SetStateAction<boolean>>
 }
 
+const MotionMenu = motion(Menu)
+const MotionArrow = motion(MoveRight)
+
 export const NavigationSection = ({ toggle, setToggle }: NavigationProps) => {
   const handleToggle = async () => {
     setToggle((t) => (t = !t))
   }
 
-  const variants = {
-    menu: {
+  const variantsMenu: Variants = {
+    initial: { opacity: 0 },
+    animate: {
       rotate: toggle ? 45 : 0,
       opacity: toggle ? 0 : 1,
       transition: { duration: 0.2 },
     },
-    arrow: {
+  }
+
+  const variantsArrow: Variants = {
+    initial: { opacity: 0 },
+    animate: {
       rotate: toggle ? 90 : 45,
       opacity: toggle ? 1 : 0,
       transition: { duration: 0.2 },
@@ -49,40 +58,21 @@ export const NavigationSection = ({ toggle, setToggle }: NavigationProps) => {
           onClick={handleToggle}
           className="relative mb-4 mr-14 flex w-full cursor-pointer justify-center lg:hidden"
         >
-          <motion.svg
-            animate={variants.arrow}
-            xmlns="http://www.w3.org/2000/svg"
-            width="30"
-            height="30"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className={`lucide lucide-menu absolute`}
-          >
-            <path d="M18 8L22 12L18 16" />
-            <path d="M2 12H22" />
-          </motion.svg>
+          <MotionArrow
+            variants={variantsArrow}
+            initial="initial"
+            animate="animate"
+            size={30}
+            className="absolute"
+          />
           &nbsp;
-          <motion.svg
-            animate={variants.menu}
-            xmlns="http://www.w3.org/2000/svg"
-            width="30"
-            height="30"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className={`lucide lucide-menu absolute`}
-          >
-            <line x1="4" x2="20" y1="12" y2="12" />
-            <line x1="4" x2="20" y1="6" y2="6" />
-            <line x1="4" x2="20" y1="18" y2="18" />
-          </motion.svg>
+          <MotionMenu
+            initial="initial"
+            variants={variantsMenu}
+            animate="animate"
+            size={30}
+            className="absolute"
+          />
         </button>
 
         <div className="hidden lg:block">
