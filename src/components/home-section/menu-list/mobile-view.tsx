@@ -1,20 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion"
 import { MENULIST } from "~/constant/menu-list-data"
 
-export const MenuListDesktopView = (): JSX.Element => {
-  return (
-    <ul className="hidden items-center justify-center lg:flex">
-      {MENULIST.map((m, i) => (
-        <li key={i}>
-          <a href={m.link} className="mx-4 cursor-pointer text-[#202020]">
-            {m.title}
-          </a>
-        </li>
-      ))}
-    </ul>
-  )
-}
-
 export const MenuListMobileView = ({ toggle }: { toggle: boolean }) => {
   return (
     <AnimatePresence>
