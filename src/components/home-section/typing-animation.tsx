@@ -32,10 +32,8 @@ export const TypingAnimation = (): JSX.Element => {
           if (currentIndex < textToType.length) {
             setTypedText(textToType.slice(0, currentIndex + 1))
           } else {
-            setIsCursorVisible(true) // Ensure cursor is visible before reversing
             setTimeout(() => {
               setIsReversed(true)
-              setIsCursorVisible(false) // Hide cursor during delay before reversing
             }, 2000) // Delay 2 seconds before reversing the text
           }
         } else {
@@ -43,7 +41,6 @@ export const TypingAnimation = (): JSX.Element => {
             setTypedText(textToType.slice(0, currentIndex - 1))
           } else {
             setIsReversed(false)
-            setIsCursorVisible(true) // Show cursor before starting the next iteration
             setStringIndex((prevIndex) => (prevIndex + 1) % strings.length)
             setTypedText("")
           }
@@ -55,41 +52,16 @@ export const TypingAnimation = (): JSX.Element => {
     return () => clearInterval(interval)
   }, [isReversed, stringIndex, strings, typedText])
 
-  const [isCursorVisible, setIsCursorVisible] = useState(true)
-
-  useEffect(() => {
-    const cursorBlinkInterval = setInterval(() => {
-      setIsCursorVisible((prevIsCursorVisible) => !prevIsCursorVisible)
-    }, 500)
-
-    return () => clearInterval(cursorBlinkInterval)
-  }, [])
-
   return (
     <div className={`${akaya.className}`}>
       <span>
-        <motion.span
+        <span
           style={{ color: `${strings[stringIndex].color}` }}
           className="font-bold uppercase"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.2 }}
         >
           {typedText}
-        </motion.span>
-        {(isCursorVisible || isReversed) && (
-          <motion.span
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-              duration: 0.5,
-              repeat: Infinity,
-              repeatType: "reverse",
-            }}
-          >
-            {cursor}
-          </motion.span>
-        )}
+        </span>
+        <span className="animate-ping">{cursor}</span>
       </span>
     </div>
   )
